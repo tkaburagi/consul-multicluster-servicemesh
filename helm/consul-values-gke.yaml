@@ -3,6 +3,7 @@ global:
   datacenter: dc-1
   tls:
     enabled: true
+    verify: false
   federation:
     enabled: true
     createFederationSecret: true
