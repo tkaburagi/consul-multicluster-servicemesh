@@ -1,6 +1,6 @@
 global:
   name: consul
-  datacenter: dc-eks
+  datacenter: dc-2
   tls:
     enabled: true
     caCert:

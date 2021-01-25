@@ -41,9 +41,9 @@ export CONSUL_HTTP_ADDR=xxx # GKE
 consul config write proxy-config/hcx-svc-router.hcl
 consul config write ingress-gateway/ingress-gateway.hcl
 consul config write ingress-gateway/teminating-gateway.hcl
-export CONSUL_HTTP_ADDR=xxx # EKS
 consul config write proxy-config/japan-svc-defaults.hcl
 consul config write proxy-config/france-svc-defaults.hcl
+consul config write proxy-config/corp-svc-defaults.hcl
 consul config write proxy-config/country-svc-defaults.hcl
 consul config write proxy-config/country-svc-router.hcl
 ```
@@ -70,7 +70,14 @@ consul config write proxy-config/hashi-svc-defaults.hcl
 consul config write terminating-gateway/terminating-gateway.hcl
 ```
 
-## Mesh Gateway
+## Consul UI
+<kbd>
+  <img src="https://github-image-tkaburagi.s3-ap-northeast-1.amazonaws.com/my-github-repo/dc-1.png">
+</kbd>
+<kbd>
+  <img src="https://github-image-tkaburagi.s3-ap-northeast-1.amazonaws.com/my-github-repo/dc-2.png">
+</kbd>
 
-
-### GKE 
+## Access to App
+* `https://mesh-ui-<random-route>.cfapps.io/japan`
+* `https://mesh-ui-<random-route>.cfapps.io/france`

@@ -13,7 +13,7 @@ metadata:
     prometheus.io/scrape: "true"
     prometheus.io/port: "9102"
     consul.hashicorp.com/connect-inject: "true"
-    consul.hashicorp.com/connect-service-upstreams: "country-api:5000"
+    consul.hashicorp.com/connect-service-upstreams: "country-api:5000:dc-2"
 spec:
   serviceAccountName: corpx
   containers:
