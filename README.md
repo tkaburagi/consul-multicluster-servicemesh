@@ -77,3 +77,7 @@ consul config write terminating-gateway/terminating-gateway.hcl
 <kbd>
   <img src="https://github-image-tkaburagi.s3-ap-northeast-1.amazonaws.com/my-github-repo/dc-2.png">
 </kbd>
+
+## Access to App
+* `https://mesh-ui-<random-route>.cfapps.io/japan`
+* `https://mesh-ui-<random-route>.cfapps.io/france`
