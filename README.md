@@ -69,3 +69,11 @@ curl --request PUT --data @terminating-gateway/regist-hashi.json -k $CONSUL_HTTP
 consul config write proxy-config/hashi-svc-defaults.hcl
 consul config write terminating-gateway/terminating-gateway.hcl
 ```
+
+## Consul UI
+<kbd>
+  <img src="https://github-image-tkaburagi.s3-ap-northeast-1.amazonaws.com/my-github-repo/dc-1.png">
+</kbd>
+<kbd>
+  <img src="https://github-image-tkaburagi.s3-ap-northeast-1.amazonaws.com/my-github-repo/dc-2.png">
+</kbd>
