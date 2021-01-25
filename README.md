@@ -69,8 +69,3 @@ curl --request PUT --data @terminating-gateway/regist-hashi.json -k $CONSUL_HTTP
 consul config write proxy-config/hashi-svc-defaults.hcl
 consul config write terminating-gateway/terminating-gateway.hcl
 ```
-
-## Mesh Gateway
-
-
-### GKE 
