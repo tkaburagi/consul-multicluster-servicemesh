@@ -41,9 +41,9 @@ export CONSUL_HTTP_ADDR=xxx # GKE
 consul config write proxy-config/hcx-svc-router.hcl
 consul config write ingress-gateway/ingress-gateway.hcl
 consul config write ingress-gateway/teminating-gateway.hcl
-export CONSUL_HTTP_ADDR=xxx # EKS
 consul config write proxy-config/japan-svc-defaults.hcl
 consul config write proxy-config/france-svc-defaults.hcl
+consul config write proxy-config/corp-svc-defaults.hcl
 consul config write proxy-config/country-svc-defaults.hcl
 consul config write proxy-config/country-svc-router.hcl
 ```
