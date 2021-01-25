@@ -1,11 +1,11 @@
 global:
   name: consul
   datacenter: dc-1
-#  tls:
-#    enabled: true
-#  federation:
-#    enabled: true
-#    createFederationSecret: true
+  tls:
+    enabled: true
+  federation:
+    enabled: true
+    createFederationSecret: true
 server:
   replicas: 1
   bootstrapExpect: 1
@@ -31,8 +31,8 @@ connectInject:
   centralConfig:
     enabled: true
     defaultProtocol: "http"
-#meshGateway:
-#  enabled: true
+meshGateway:
+  enabled: true
 ingressGateways:
   enabled: true
   gateways:
