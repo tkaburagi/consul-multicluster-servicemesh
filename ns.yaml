@@ -1,0 +1,6 @@
+kind: Namespace
+apiVersion: v1
+metadata:
+  name: multicluster-servicemesh
+  labels:
+    name: multicluster-servicemesh

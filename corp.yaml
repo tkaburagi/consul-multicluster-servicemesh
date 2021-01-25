@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: corpx
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: corpx
+  labels:
+    app: "corpx"
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9102"
+    consul.hashicorp.com/connect-inject: "true"
+    consul.hashicorp.com/connect-service-upstreams: "country-api:5000"
+spec:
+  serviceAccountName: corpx
+  containers:
+    - name: corpx
+      image: gcr.io/se-kabu/corpxapp:latest
+      ports:
+        - containerPort: 8080
+          name: http

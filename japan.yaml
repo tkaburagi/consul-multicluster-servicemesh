@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: japan
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: japan
+  labels:
+    app: "japan"
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9102"
+    consul.hashicorp.com/connect-inject: "true"
+spec:
+  serviceAccountName: japan
+  containers:
+    - name: japan
+      image: gcr.io/se-kabu/japanapp:latest
+      ports:
+        - containerPort: 8080
+          name: http

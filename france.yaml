@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: france
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: france
+  labels:
+    app: "france"
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9102"
+    consul.hashicorp.com/connect-inject: "true"
+spec:
+  serviceAccountName: france
+  containers:
+    - name: france
+      image: gcr.io/se-kabu/franceapp:latest
+      ports:
+        - containerPort: 8080
+          name: http

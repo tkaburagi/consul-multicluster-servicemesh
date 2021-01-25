@@ -1,0 +1,7 @@
+{
+  "Datacenter": "dc-1",
+  "Node": "Google Cloud Run",
+  "ServiceID": "hashi-gce"
+}
+
+//curl --request PUT --data @remove.json http://34.121.96.110/v1/catalog/deregister

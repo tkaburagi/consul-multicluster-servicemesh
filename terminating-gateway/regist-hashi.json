@@ -1,0 +1,13 @@
+{
+  "Node": "Google Compute Engine",
+  "Address": "34.84.167.230",
+  "NodeMeta": {
+    "external-node": "true",
+    "external-probe": "true"
+  },
+  "Service": {
+    "ID": "hashi-gce",
+    "Service": "hashi-gce",
+    "Port": 8080
+  }
+}

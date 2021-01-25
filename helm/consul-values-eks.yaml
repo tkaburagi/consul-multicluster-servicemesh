@@ -1,0 +1,48 @@
+global:
+  name: consul
+  datacenter: dc-eks
+  tls:
+    enabled: true
+    caCert:
+      secretName: consul-federation
+      secretKey: caCert
+    caKey:
+      secretName: consul-federation
+      secretKey: caKey
+  federation:
+    enabled: true
+server:
+  replicas: 1
+  bootstrapExpect: 1
+  disruptionBudget:
+    enabled: true
+    maxUnavailable: 0
+  extraConfig: |
+    {
+      "ui_config": {
+        "enabled": true
+      }
+    }
+  extraVolumes:
+    - type: secret
+      name: consul-federation
+      items:
+        - key: serverConfigJSON
+          path: config.json
+      load: true
+client:
+  enabled: true
+  grpc: true
+ui:
+  enabled: true
+  service:
+    type: LoadBalancer
+  grpc: true
+connectInject:
+  enabled: true
+  default: true
+  centralConfig:
+    enabled: true
+    defaultProtocol: "http"
+meshGateway:
+  enabled: true

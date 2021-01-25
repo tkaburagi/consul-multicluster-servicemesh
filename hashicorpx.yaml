@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: hashicorpx
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hashicorpx
+  labels:
+    app: "hashicorpx"
+  annotations:
+    prometheus.io/scrape: "true"
+    prometheus.io/port: "9102"
+    consul.hashicorp.com/connect-inject: "true"
+    consul.hashicorp.com/connect-service-upstreams: "hashi-gce:5000, corpx:5001"
+spec:
+  serviceAccountName: hashicorpx
+  containers:
+    - name: hashicorpx
+      image: gcr.io/se-kabu/hcxapp:latest
+      ports:
+        - containerPort: 8080
+          name: http
+---
+apiVersion: "v1"
+kind: "Service"
+metadata:
+  name: "hashicorpx-lb"
+  namespace: "multicluster-servicemesh"
+  labels:
+    app: "hashicorpx"
+spec:
+  ports:
+    - protocol: "TCP"
+      port: 8080
+      targetPort: 8080
+  selector:
+    app: "hashicorpx"
+  type: "LoadBalancer"
