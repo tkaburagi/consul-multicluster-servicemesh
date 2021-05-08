@@ -29,9 +29,12 @@ ui:
 connectInject:
   enabled: true
   default: true
-  centralConfig:
-    enabled: true
-    defaultProtocol: "http"
+  client:
+    extraConfig: |
+      {"enable_central_service_config": true}
+  server:
+    extraConfig: |
+      {"enable_central_service_config": true}
 meshGateway:
   enabled: true
 ingressGateways:
