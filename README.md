@@ -2,6 +2,9 @@
   <img src="https://github-image-tkaburagi.s3-ap-northeast-1.amazonaws.com/my-github-repo/multicluster-servicemesh.png">
 </kbd>
 
+# Blog post
+**This post shows detailed instructions and how to setup.**
+
 ## setup
 
 ```shell script
@@ -50,12 +53,30 @@ consul config write proxy-config/country-svc-router.hcl
 
 ## Ingress Gateway
 
-### Deploy UI App on Pivotal Web Services
+### Deploy UI App on Heroku
 
-```shell script
-git clone https://github.com/tkaburagi/mesh-ui
-./mvnw clean package -DskipTests
-cf push mesh-ui  --random-route -p target/demo-0.0.1-SNAPSHOT.jar
+**Pivotal Web Services has been depricated.** Please use Heroku instead.
+
+```console
+$ git clone -b heroku https://github.com/tkaburagi/mesh-ui
+$ rm -rf .git
+$ heroku login
+$ git init
+$ git add .
+$ git commit -m "first commit"
+$ heroku create
+```
+
+```console
+$ kubectl get svc -n=multicluster-sevicemesh | grep consul-ingress-gateway
+consul-ingress-gateway        LoadBalancer   10.0.39.98    35.224.90.180    8080:30948/TCP,8443:30402/TCP                                             21h
+```
+
+```console
+$ git push heroku master
+$ heroku config:set ingress_url=<INGRESSGW_IP>:8080
+$ heroku config:set service_fqdn=hashicorpx.ingress.dc-1.consul:8080
+$ heroku open
 ```
 
 ## Temrinating Gateway
@@ -79,13 +100,13 @@ consul config write terminating-gateway/terminating-gateway.hcl
 </kbd>
 
 ## Access to App
-* `https://mesh-ui-<random-route>.cfapps.io/japan`
+* `https://<random-route>.herokuapp.com/japan`
 
 <kbd>
   <img src="https://github-image-tkaburagi.s3-ap-northeast-1.amazonaws.com/my-github-repo/japan.png">
 </kbd>
 
-* `https://mesh-ui-<random-route>.cfapps.io/france`
+* `https://<random-route>.herokuapp.com/france`
 
 <kbd>
   <img src="https://github-image-tkaburagi.s3-ap-northeast-1.amazonaws.com/my-github-repo/france.png">
