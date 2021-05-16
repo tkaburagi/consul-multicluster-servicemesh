@@ -4,6 +4,7 @@
 
 # Blog post
 **This post shows detailed instructions and how to setup.**
+[Global Service Mesh by Consul: Using Mesh & Ingress & Terminating Gateway](https://medium.com/hashicorp-engineering/global-service-mesh-by-consul-using-mesh-ingress-terminating-gateway-a4f13a01b960)
 
 ## setup
 
